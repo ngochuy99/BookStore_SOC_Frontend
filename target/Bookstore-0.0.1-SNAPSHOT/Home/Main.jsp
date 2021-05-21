@@ -1,5 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.company.Book" %>
+<%@ page import="Model.Category" %>
+<%@ page import="Model.Author" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,30 +12,21 @@
 				<li>
 					<h4>Categories</h4>
 					<ul>
-						<li><a href="#">Sach van hoc</a></li>
-						<li><a href="#">Sach khoa hoc</a></li>
-						<li><a href="#">Tieu thuyet</a></li>
-						<li><a href="#">Sach kinh te</a></li>
-						<li><a href="#">Sach dau tu</a></li>
-						<li><a href="#">Sach ky nang song</a></li>
-						<li><a href="#">Sach lap trinh</a></li>
+						<%
+							ArrayList<Model.Category> categoryList = (ArrayList<Category>)request.getAttribute("categoryList");
+							for(Category c:categoryList){%>
+						<li><a href="#"><%=c.getName()%></a></li>
+						<%}%>
 					</ul>
 				</li>
 				<li>
 					<h4>Authors</h4>
 					<ul>
-						<li><a href="#">Lorem ipsum dolor</a></li>
-						<li><a href="#">Morbi eget</a></li>
-						<li><a href="#">Nulla egestas</a></li>
-						<li><a href="#">Curabitur venenatis</a></li>
-						<li><a href="#">Ut dictum purus</a></li>
-						<li><a href="#">Curabitur imperdiet</a></li>
-						<li><a href="#">Lorem ipsum dolor</a></li>
-						<li><a href="#">Morbi eget</a></li>
-						<li><a href="#">Nulla egestas</a></li>
-						<li><a href="#">Curabitur venenatis</a></li>
-						<li><a href="#">Ut dictum purus</a></li>
-						<li><a href="#">Curabitur imperdiet</a></li>
+						<%
+							ArrayList<Author> authorList = (ArrayList<Author>)request.getAttribute("authorList");
+							for(Author a:authorList){%>
+						<li><a href="#"><%=a.getFirstname()%> <%=a.getLastname()%> </a></li>
+						<%}%>
 					</ul>
 				</li>
 			</ul>
@@ -47,18 +40,18 @@
 				<ul>
 					<%
 						ArrayList<com.company.Book> bookList = (ArrayList<Book>)request.getAttribute("booklist");
-						for(Book b:bookList){%>
+						for(Book book:bookList){%>
 					<li>
 						<div class="product">
 							<a href="#" class="info">
 								<span class="holder">
-									<img src="data:image/png;base64,<%=b.getImage()%>" alt="" />
-									<span class="book-name"><%=b.getName()%></span>
-									<span class="author"><%=b.getAuthor()%></span>
-									<span class="description"><%=b.getDescription()%></span>
+									<img src="data:image/png;base64,<%=book.getImage()%>" alt="" />
+									<span class="book-name"><%=book.getName()%></span>
+									<span class="author"><%=book.getAuthor()%></span>
+									<span class="description"><%=book.getDescription()%></span>
 								</span>
 							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span><%=b.getPrice()%></span></a>
+							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span><%=book.getPrice()%></span></a>
 						</div>
 					</li>
 					<%}%>
