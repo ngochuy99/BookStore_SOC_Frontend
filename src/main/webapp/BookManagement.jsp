@@ -54,8 +54,8 @@
 								<div class="modal-body">
 
 									<div class="form-group">
-										<label> Name </label> <input type="text" name="username"
-											class="form-control" placeholder="Enter Username">
+										<label> Name </label> <input type="text" name="bookname"
+											class="form-control" placeholder="Enter BookName">
 									</div>
 									<div class="form-group">
 										<label>Price</label> <input type="text" name="price"
@@ -63,13 +63,23 @@
 										<small class="error_email" style="color: red;"></small>
 									</div>
 									<div class="form-group">
+										<label>Quantity</label> <input type="text" name="inStock"
+																	class="form-control checking_email" placeholder="Enter Quantity">
+										<small class="error_email" style="color: red;"></small>
+									</div>
+									<div class="form-group">
 										<label>Description</label> <input type="text" name="description"
 											class="form-control" placeholder="Enter Description">
 									</div>
 									<div class="form-group">
-										<label>Author</label> <input type="text"
-											name="author" class="form-control"
-											placeholder="Enter Author">
+										<label>Author First Name</label> <input type="text"
+											name="author_firstname" class="form-control"
+											placeholder="Enter Author First Name">
+									</div>
+									<div class="form-group">
+										<label>Author Last Name</label> <input type="text"
+																	 name="author_lastname" class="form-control"
+																	 placeholder="Enter Author Last Name">
 									</div>
 									<div class="form-group">
 										<label>Category</label> <input type="text"

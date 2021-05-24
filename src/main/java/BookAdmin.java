@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,24 +73,29 @@ public class BookAdmin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Tao connect den server
         CloseableHttpClient client = HttpClients.createDefault();
-        HttpPost httpPost = new HttpPost(base_uri+"books");
-        //Lay du lieu tu file jsp
-        String id = request.getParameter("id");
-        String name = request.getParameter("name");
+        HttpPost httpPost = new HttpPost(base_uri+"book");
+        String name = request.getParameter("bookname");
         String price = request.getParameter("price");
         String description = request.getParameter("description");
-        String author = request.getParameter("author");
+        String author_firstname = request.getParameter("author_firstname");
+        String author_lastname = request.getParameter("author_lastname");
         String category = request.getParameter("category");
         String publisher = request.getParameter("publisher");
+        String inStock = request.getParameter("inStock");
+
         //Tao json object
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id",id);
         jsonObject.put("name",name);
-        jsonObject.put("price",price);
+        jsonObject.put("inStock",Integer.parseInt(inStock));
+        jsonObject.put("price",Integer.parseInt(price));
         jsonObject.put("description",description);
-        jsonObject.put("author",author);
-        jsonObject.put("category",category);
-        jsonObject.put("publisher",publisher);
+        jsonObject.put("author_firstname",author_firstname);
+        jsonObject.put("author_lastname",author_lastname);
+        JSONArray category_list = new JSONArray();
+        category_list.put(0,category);
+        jsonObject.put("category_list",category_list);
+        jsonObject.put("publisher_name",publisher);
+        jsonObject.put("image","");
         //Set data cho http post request
         StringEntity entity = new StringEntity(jsonObject.toString());
         httpPost.setEntity(entity); //set json vao http post request
