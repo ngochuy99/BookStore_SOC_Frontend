@@ -1,6 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ page import="Model.Publisher" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
@@ -67,6 +68,43 @@
                     </div>
                 </div>
             </div>
+            <!-- Update Publ-->
+            <div class="modal fade" id="updatepublisher" tabindex="-1"
+                 role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" >Update publisher</h5>
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="" method="post" class="user">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label> ID </label> <input readonly type="text" name="idupdate" id="idupdate"
+                                                               class="form-control" >
+                                </div>
+                                <div class="form-group">
+                                    <label> Name </label> <input type="text" name="nameupdate" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Address</label> <input type="text" name="addressupdate">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Close</button>
+                                <button type = "submit" class="btn btn-primary btn-user btn-block">
+                                    Save
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <!-- Table book -->
             <div class="container-fluid">
@@ -90,16 +128,19 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <%
+                                    ArrayList<Publisher> pub = (ArrayList<Publisher>)request.getAttribute("publisherList");
+                                    for(Publisher p:pub){%>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><%=p.getId()%></td>
+                                    <td><%=p.getName()%></td>
+                                    <td><%=p.getAddress()%></td>
                                     <td>
-                                        <button type="button" class="btn btn-success" data-toggle="modal"
-                                                data-target="#addpublisher">UPDATE</button>
+                                        <button id="<%=p.getId()%>" type="button" class="btn btn-success" data-toggle="modal"
+                                                data-target="#updatepublisher">UPDATE</button>
                                     </td>
                                     <td>
-                                        <button type="submit" class="btn btn-danger">DELETE</button>
+                                        <button href="deletePublisher?id=<%=p.getId()%>" type="submit" class="btn btn-danger">DELETE</button>
                                     </td>
                                 </tr>
                                 </tbody>
