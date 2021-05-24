@@ -73,6 +73,12 @@
                                                placeholder="Gender">
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                        <input type="email" class="form-control form-control-user" name="email"
+                                               placeholder="Email">
+                                    </div>
+                                </div>
                                 <button type = "submit" class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </button>
