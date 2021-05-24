@@ -103,6 +103,66 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="modal fade" id="editbook" tabindex="-1"
+					 role="dialog" aria-labelledby="exampleModalLabel"
+					 aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<form action="BookAdmin" method="post" class="user">
+
+								<div class="modal-body">
+
+									<div class="form-group">
+										<label> Name </label> <input type="text" name="bookname"
+																	 class="form-control" placeholder="Enter BookName">
+									</div>
+									<div class="form-group">
+										<label>Price</label> <input type="text" name="price"
+																	class="form-control checking_email" placeholder="Enter Price">
+										<small class="error_email" style="color: red;"></small>
+									</div>
+									<div class="form-group">
+										<label>Quantity</label> <input type="text" name="inStock"
+																	   class="form-control checking_email" placeholder="Enter Quantity">
+										<small class="error_email" style="color: red;"></small>
+									</div>
+									<div class="form-group">
+										<label>Description</label> <input type="text" name="description"
+																		  class="form-control" placeholder="Enter Description">
+									</div>
+									<div class="form-group">
+										<label>Author First Name</label> <input type="text"
+																				name="author_firstname" class="form-control"
+																				placeholder="Enter Author First Name">
+									</div>
+									<div class="form-group">
+										<label>Author Last Name</label> <input type="text"
+																			   name="author_lastname" class="form-control"
+																			   placeholder="Enter Author Last Name">
+									</div>
+									<div class="form-group">
+										<label>Category</label> <input type="text"
+																	   name="category" class="form-control"
+																	   placeholder="Enter Category">
+									</div>
+									<div class="form-group">
+										<label>Publisher</label> <input type="text"
+																		name="publisher" class="form-control"
+																		placeholder="Enter Publisher">
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">Close</button>
+									<button type = "submit" class="btn btn-primary btn-user btn-block">
+										Save
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 <%--				<jsp:include page="Admin/TableBook.jsp"></jsp:include>--%>
 				<!-- Table book -->
 				<div class="container-fluid">
@@ -148,7 +208,8 @@
 											</td>
 											<td><%=b.getPublisher()%></td>
 											<td>
-												<button type="submit" class="btn btn-success">EDIT</button>
+												<button type="button" class="btn btn-success" data-toggle="modal"
+														data-target="#editbook">UPDATE</button>
 											</td>
 											<td>
 												<button type="submit" class="btn btn-danger">DELETE</button>
