@@ -1,3 +1,8 @@
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -65,6 +70,39 @@ public class BookAdmin extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        // Tao connect den server
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost(base_uri+"books");
+        //Lay du lieu tu file jsp
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        String price = request.getParameter("price");
+        String description = request.getParameter("description");
+        String author = request.getParameter("author");
+        String category = request.getParameter("category");
+        String publisher = request.getParameter("publisher");
+        //Tao json object
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id",id);
+        jsonObject.put("name",name);
+        jsonObject.put("price",price);
+        jsonObject.put("description",description);
+        jsonObject.put("author",author);
+        jsonObject.put("category",category);
+        jsonObject.put("publisher",publisher);
+        //Set data cho http post request
+        StringEntity entity = new StringEntity(jsonObject.toString());
+        httpPost.setEntity(entity); //set json vao http post request
+        httpPost.setHeader("Accept", "application/json");
+        httpPost.setHeader("Content-type", "application/json");
+        CloseableHttpResponse jsonres = client.execute(httpPost); //Thuc hien post du lieu len server
+        String content = jsonres.getStatusLine().toString();   //du lieu tra ve tu server
+        System.out.println(content);
+        if(content.equalsIgnoreCase("HTTP/1.1 200 OK")){
+            response.sendRedirect(request.getContextPath()+"/BookAdmin");
+        }
+        else {
+            response.sendRedirect(request.getContextPath()+"/BookAdmin");
+        }
     }
 }

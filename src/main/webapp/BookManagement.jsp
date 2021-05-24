@@ -49,7 +49,7 @@
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<form action="code.php" method="POST">
+							<form action="BookAdmin" method="post" class="user">
 
 								<div class="modal-body">
 
@@ -58,25 +58,36 @@
 											class="form-control" placeholder="Enter Username">
 									</div>
 									<div class="form-group">
-										<label>Instock</label> <input type="email" name="email"
-											class="form-control checking_email" placeholder="Enter Email">
+										<label>Price</label> <input type="text" name="price"
+											class="form-control checking_email" placeholder="Enter Price">
 										<small class="error_email" style="color: red;"></small>
 									</div>
 									<div class="form-group">
-										<label>Price</label> <input type="password" name="password"
-											class="form-control" placeholder="Enter Password">
+										<label>Description</label> <input type="text" name="description"
+											class="form-control" placeholder="Enter Description">
 									</div>
 									<div class="form-group">
-										<label>Confirm Password</label> <input type="password"
-											name="confirmpassword" class="form-control"
-											placeholder="Confirm Password">
+										<label>Author</label> <input type="text"
+											name="author" class="form-control"
+											placeholder="Enter Author">
+									</div>
+									<div class="form-group">
+										<label>Category</label> <input type="text"
+																	 name="category" class="form-control"
+																	 placeholder="Enter Category">
+									</div>
+									<div class="form-group">
+										<label>Publisher</label> <input type="text"
+																	 name="publisher" class="form-control"
+																	 placeholder="Enter Publisher">
 									</div>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"
 										data-dismiss="modal">Close</button>
-									<button type="submit" name="registerbtn"
-										class="btn btn-primary">Save</button>
+									<button type = "submit" class="btn btn-primary btn-user btn-block">
+										Save
+									</button>
 								</div>
 							</form>
 						</div>
