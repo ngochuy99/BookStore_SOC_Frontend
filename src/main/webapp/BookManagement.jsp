@@ -42,8 +42,7 @@
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Add Admin
-									Data</h5>
+								<h5 class="modal-title" id="exampleModalLabel">Add Book</h5>
 								<button type="button" class="close" data-dismiss="modal"
 									aria-label="Close">
 									<span aria-hidden="true">&times;</span>
@@ -59,13 +58,11 @@
 									</div>
 									<div class="form-group">
 										<label>Price</label> <input type="text" name="price"
-											class="form-control checking_email" placeholder="Enter Price">
-										<small class="error_email" style="color: red;"></small>
+											class="form-control " placeholder="Enter Price">
 									</div>
 									<div class="form-group">
 										<label>Quantity</label> <input type="text" name="inStock"
-																	class="form-control checking_email" placeholder="Enter Quantity">
-										<small class="error_email" style="color: red;"></small>
+																	class="form-control" placeholder="Enter Quantity">
 									</div>
 									<div class="form-group">
 										<label>Description</label> <input type="text" name="description"
@@ -169,7 +166,7 @@
 					<!-- Page Heading -->
 					<h1 class="h3 mb-2 text-gray-800">List Book</h1>
 					<button type="button" class="btn btn-primary" data-toggle="modal"
-						data-target="#addadminprofile">Add Admin Profile</button>
+						data-target="#addadminprofile">Add Book</button>
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-body">

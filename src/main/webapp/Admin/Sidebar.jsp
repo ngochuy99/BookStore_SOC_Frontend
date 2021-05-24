@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Sidebar -->
 <ul
 	class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
@@ -31,36 +32,25 @@
 	<div class="sidebar-heading">Interface</div>
 
 	<!-- Nav Item - Pages Collapse Menu -->
-	<li class="nav-item"><a class="nav-link collapsed" href="#"
+	<li class="nav-item"><a class="nav-link collapsed" href="<%=request.getContextPath()%>/BookAdmin"
 		data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
 		aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>List
 				book</span>
 	</a>
-		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-			data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Custom Components:</h6>
-				<a class="collapse-item" href="buttons.html">Buttons</a> <a
-					class="collapse-item" href="cards.html">Cards</a>
-			</div>
-		</div>
 	</li>
 
 	<!-- Nav Item - Utilities Collapse Menu -->
-	<li class="nav-item"><a class="nav-link collapsed" href="#"
+	<li class="nav-item"><a class="nav-link collapsed" href="/Author.jsp"
 		data-toggle="collapse" data-target="#collapseUtilities"
 		aria-expanded="true" aria-controls="collapseUtilities"> <i
-			class="fas fa-fw fa-wrench"></i> <span>Utilities</span>
+			class="fas fa-fw fa-wrench"></i> <span>List author</span>
 	</a>
-		<div id="collapseUtilities" class="collapse"
-			aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Custom Utilities:</h6>
-				<a class="collapse-item" href="utilities-color.html">Colors</a> <a
-					class="collapse-item" href="utilities-border.html">Borders</a> <a
-					class="collapse-item" href="utilities-animation.html">Animations</a>
-				<a class="collapse-item" href="utilities-other.html">Other</a>
-			</div>
-		</div></li>
+	</li>
+	<li class="nav-item"><a class="nav-link collapsed" href="/Publisher.jsp"
+							data-toggle="collapse" data-target="#collapseUtilities"
+							aria-expanded="true" aria-controls="collapseUtilities"> <i
+			class="fas fa-fw fa-wrench"></i> <span>List Category</span>
+	</a>
+	</li>
 	<!-- Heading -->
 </ul>
