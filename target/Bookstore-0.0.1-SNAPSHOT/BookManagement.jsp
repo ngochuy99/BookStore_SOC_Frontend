@@ -42,8 +42,7 @@
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Add Admin
-									Data</h5>
+								<h5 class="modal-title" id="exampleModalLabel">Add Book</h5>
 								<button type="button" class="close" data-dismiss="modal"
 									aria-label="Close">
 									<span aria-hidden="true">&times;</span>
@@ -112,7 +111,7 @@
 								<div class="modal-body">
 
                                     <div class="form-group">
-                                        <label> Name </label> <input readonly type="text" name="bookidupdate" id="bookidupdate"
+                                        <label> ID </label> <input readonly type="text" name="bookidupdate" id="bookidupdate"
                                                                      class="form-control" >
                                     </div>
 
@@ -172,7 +171,7 @@
 					<!-- Page Heading -->
 					<h1 class="h3 mb-2 text-gray-800">List Book</h1>
 					<button type="button" class="btn btn-primary" data-toggle="modal"
-						data-target="#addadminprofile">Add Admin Profile</button>
+						data-target="#addadminprofile">Add Book</button>
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-body">
