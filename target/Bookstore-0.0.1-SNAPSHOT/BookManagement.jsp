@@ -59,13 +59,11 @@
 									</div>
 									<div class="form-group">
 										<label>Price</label> <input type="text" name="price"
-											class="form-control checking_email" placeholder="Enter Price">
-										<small class="error_email" style="color: red;"></small>
+											class="form-control " placeholder="Enter Price">
 									</div>
 									<div class="form-group">
 										<label>Quantity</label> <input type="text" name="inStock"
-																	class="form-control checking_email" placeholder="Enter Quantity">
-										<small class="error_email" style="color: red;"></small>
+																	class="form-control" placeholder="Enter Quantity">
 									</div>
 									<div class="form-group">
 										<label>Description</label> <input type="text" name="description"
