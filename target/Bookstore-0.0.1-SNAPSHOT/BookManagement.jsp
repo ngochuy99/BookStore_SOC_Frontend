@@ -109,46 +109,51 @@
 					 aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
-							<form action="BookAdmin" method="post" class="user">
+							<form action="updateBook" method="post" class="user">
 
 								<div class="modal-body">
 
+                                    <div class="form-group">
+                                        <label> Name </label> <input readonly type="text" name="bookidupdate" id="bookidupdate"
+                                                                     class="form-control" >
+                                    </div>
+
 									<div class="form-group">
-										<label> Name </label> <input type="text" name="bookname"
+										<label> Name </label> <input type="text" name="booknameupdate"
 																	 class="form-control" placeholder="Enter BookName">
 									</div>
 									<div class="form-group">
-										<label>Price</label> <input type="text" name="price"
+										<label>Price</label> <input type="text" name="priceupdate"
 																	class="form-control checking_email" placeholder="Enter Price">
 										<small class="error_email" style="color: red;"></small>
 									</div>
 									<div class="form-group">
-										<label>Quantity</label> <input type="text" name="inStock"
+										<label>Quantity</label> <input type="text" name="inStockupdate"
 																	   class="form-control checking_email" placeholder="Enter Quantity">
 										<small class="error_email" style="color: red;"></small>
 									</div>
 									<div class="form-group">
-										<label>Description</label> <input type="text" name="description"
+										<label>Description</label> <input type="text" name="descriptionupdate"
 																		  class="form-control" placeholder="Enter Description">
 									</div>
 									<div class="form-group">
 										<label>Author First Name</label> <input type="text"
-																				name="author_firstname" class="form-control"
+																				name="author_firstnameupdate" class="form-control"
 																				placeholder="Enter Author First Name">
 									</div>
 									<div class="form-group">
 										<label>Author Last Name</label> <input type="text"
-																			   name="author_lastname" class="form-control"
+																			   name="author_lastnameupdate" class="form-control"
 																			   placeholder="Enter Author Last Name">
 									</div>
 									<div class="form-group">
 										<label>Category</label> <input type="text"
-																	   name="category" class="form-control"
+																	   name="categoryupdate" class="form-control"
 																	   placeholder="Enter Category">
 									</div>
 									<div class="form-group">
 										<label>Publisher</label> <input type="text"
-																		name="publisher" class="form-control"
+																		name="publisherupdate" class="form-control"
 																		placeholder="Enter Publisher">
 									</div>
 								</div>
@@ -208,11 +213,11 @@
 											</td>
 											<td><%=b.getPublisher()%></td>
 											<td>
-												<button type="button" class="btn btn-success" data-toggle="modal"
+												<button type="button" id="<%=b.getId()%>" class="btn btn-success" data-toggle="modal"
 														data-target="#editbook">UPDATE</button>
 											</td>
 											<td>
-												<button type="submit" class="btn btn-danger">DELETE</button>
+												<a  href="deleteBook?id=<%=b.getId()%>" class="btn btn-danger">DELETE</a>
 											</td>
 										</tr>
 									<%}%>
@@ -242,6 +247,10 @@
 	<!-- Page level custom scripts -->
 	<script src="js/demo/chart-area-demo.js"></script>
 	<script src="js/demo/chart-pie-demo.js"></script>
-
+    <script>
+        $('#editbook').on('show.bs.modal', function (e) {
+            $("#bookidupdate").val(e.relatedTarget.id);
+        })
+    </script>
 </body>
 </html>
