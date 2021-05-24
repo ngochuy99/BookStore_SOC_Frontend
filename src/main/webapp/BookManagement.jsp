@@ -111,7 +111,7 @@
 								<div class="modal-body">
 
                                     <div class="form-group">
-                                        <label> Name </label> <input readonly type="text" name="bookidupdate" id="bookidupdate"
+                                        <label> ID </label> <input readonly type="text" name="bookidupdate" id="bookidupdate"
                                                                      class="form-control" >
                                     </div>
 
