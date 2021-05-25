@@ -46,7 +46,7 @@
 			class="fas fa-fw fa-wrench"></i> <span>List author</span>
 	</a>
 	</li>
-	<li class="nav-item"><a class="nav-link collapsed" href="/Publisher.jsp"
+	<li class="nav-item"><a class="nav-link collapsed" href="<%=request.getContextPath()%>/Publisher"
 							data-toggle="collapse" data-target="#collapseUtilities"
 							aria-expanded="true" aria-controls="collapseUtilities"> <i
 			class="fas fa-fw fa-wrench"></i> <span>List Category</span>
