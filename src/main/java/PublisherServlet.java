@@ -1,4 +1,9 @@
 import Model.Publisher;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -40,13 +45,10 @@ public class PublisherServlet extends HttpServlet {
             List<Publisher> publisherList = new ArrayList<>();
             for (int i = 0; i < jsonArray.length(); i++) {
                 Publisher temp = new Publisher();
-                JSONObject pub = new JSONObject(jsonArray.get(i).toString());
-                JSONObject name = pub.getJSONObject("name");    //Set Author
-                JSONObject publisher = pub.getJSONObject("address");   //Set publisher
-                temp.setId(Integer.parseInt(pub.get("id").toString()));   //Set ID
-                temp.setName(pub.get("name").toString());
-                temp.setAddress(pub.get("address").toString());
-
+                JSONObject pub = jsonArray.getJSONObject(i);
+                temp.setId(pub.getInt("id"));   //Set ID
+                temp.setName(pub.getString("name"));
+                temp.setAddress(pub.getString("address"));
                 publisherList.add(temp);
             }
             request.setAttribute("publisherList", publisherList); //Hàm đẩy bookList qua jsp đây này
@@ -58,6 +60,30 @@ public class PublisherServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost(base_uri+"publisher");
+        String name = request.getParameter("name");
+        String address = request.getParameter("address");
 
+
+        //Tao json object
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name",name);
+        jsonObject.put("address",address);
+
+        //Set data cho http post request
+        StringEntity entity = new StringEntity(jsonObject.toString());
+        httpPost.setEntity(entity); //set json vao http post request
+        httpPost.setHeader("Accept", "application/json");
+        httpPost.setHeader("Content-type", "application/json");
+        CloseableHttpResponse jsonres = client.execute(httpPost); //Thuc hien post du lieu len server
+        String content = jsonres.getStatusLine().toString();   //du lieu tra ve tu server
+        System.out.println(content);
+        if(content.equalsIgnoreCase("HTTP/1.1 200 OK")){
+            response.sendRedirect(request.getContextPath()+"/Publisher");
+        }
+        else {
+            response.sendRedirect(request.getContextPath()+"/Publisher");
+        }
     }
 }

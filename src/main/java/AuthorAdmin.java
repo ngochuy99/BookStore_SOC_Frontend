@@ -72,6 +72,7 @@ public class AuthorAdmin extends HttpServlet {
         jsonObject.put("firstname",firstname);
         jsonObject.put("lastname",lastname);
         jsonObject.put("dob",dob);
+        System.out.println(jsonObject.toString());
         //Set data cho http post request
         StringEntity entity = new StringEntity(jsonObject.toString());
         httpPost.setEntity(entity); //set json vao http post request
