@@ -1,3 +1,4 @@
+
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -31,7 +32,7 @@ public class BookAdmin extends HttpServlet {
         URL url = new URL(base_uri + "book");
         HttpURLConnection http = (HttpURLConnection) url.openConnection();
         http.setRequestMethod("GET");
-        StringBuffer jsonres = new StringBuffer();
+        StringBuilder jsonres = new StringBuilder();
         if (100 <= http.getResponseCode() && http.getResponseCode() <= 399) {   //return success code
             BufferedReader in = new BufferedReader(new InputStreamReader(http.getInputStream()));
             String inputLine;
