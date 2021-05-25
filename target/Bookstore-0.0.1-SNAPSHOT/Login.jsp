@@ -59,10 +59,11 @@
                                             Login
                                         </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Bookstore_war_exploded/loginWithGoogle&response_type=code
+    &client_id=654879518408-j1v5qo29bcklbc8vkig7h4svtaevm1ko.apps.googleusercontent.com&approval_prompt=force" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                        <a href="https://www.facebook.com/dialog/oauth?client_id=838455540211408&redirect_uri=https://localhost:8080/Bookstore_war_exploded/LoginWithFacebook" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a>
                                     </form>
@@ -94,5 +95,17 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '838455540211408',
+                cookie     : true,
+                xfbml      : true,
+                version    : 'v10.0'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };</script>
 </body>
 </html>
