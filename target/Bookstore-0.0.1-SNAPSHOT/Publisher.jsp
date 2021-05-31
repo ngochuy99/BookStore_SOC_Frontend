@@ -54,7 +54,7 @@
                                     <label> Name </label> <input type="text" name="name" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Address</label> <input type="text" name="address">
+                                    <label>Address</label> <input type="text" name="address" class="form-control">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -81,7 +81,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="" method="post" class="user">
+                        <form action="updatePublisher" method="post" class="user">
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label> ID </label> <input readonly type="text" name="idupdate" id="idupdate"
@@ -91,7 +91,7 @@
                                     <label> Name </label> <input type="text" name="nameupdate" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Address</label> <input type="text" name="addressupdate">
+                                    <label>Address</label> <input type="text" name="addressupdate" class="form-control">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -140,9 +140,10 @@
                                                 data-target="#updatepublisher">UPDATE</button>
                                     </td>
                                     <td>
-                                        <button href="deletePublisher?id=<%=p.getId()%>" type="submit" class="btn btn-danger">DELETE</button>
+                                        <a href="deletePublisher?id=<%=p.getId()%>" type="submit" class="btn btn-danger">DELETE</a>
                                     </td>
                                 </tr>
+                                <%}%>
                                 </tbody>
                             </table>
                         </div>
@@ -169,6 +170,10 @@
 <!-- Page level custom scripts -->
 <script src="js/demo/chart-area-demo.js"></script>
 <script src="js/demo/chart-pie-demo.js"></script>
-
+<script>
+    $('#updatepublisher').on('show.bs.modal', function (e) {
+        $("#idupdate").val(e.relatedTarget.id);
+    })
+</script>
 </body>
 </html>
