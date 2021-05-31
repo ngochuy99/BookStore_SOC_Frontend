@@ -14,7 +14,7 @@
 			<i class="fas fa-laugh-wink"></i>
 		</div>
 		<div class="sidebar-brand-text mx-3">
-			SB Admin <sup>2</sup>
+			BookStore
 		</div>
 	</a>
 
@@ -22,8 +22,8 @@
 	<hr class="sidebar-divider my-0">
 
 	<!-- Nav Item - Dashboard -->
-	<li class="nav-item active"><a class="nav-link" href="index.html">
-			<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
+	<li class="nav-item active"><a class="nav-link" href="<%=request.getContextPath()%>/mainPage">
+			<i class="fas fa-fw fa-tachometer-alt"></i> <span>Products</span>
 	</a></li>
 	<!-- Divider -->
 	<hr class="sidebar-divider">
@@ -33,22 +33,21 @@
 
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item"><a class="nav-link collapsed" href="<%=request.getContextPath()%>/BookAdmin"
-		data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+		 data-target="#collapseTwo"
 		aria-controls="collapseTwo"> <i class="fas fa-fw fa-cog"></i> <span>List
 				book</span>
 	</a>
 	</li>
 
 	<!-- Nav Item - Utilities Collapse Menu -->
-	<li class="nav-item"><a class="nav-link collapsed" href="/Author.jsp"
-		data-toggle="collapse" data-target="#collapseUtilities"
-		aria-expanded="true" aria-controls="collapseUtilities"> <i
-			class="fas fa-fw fa-wrench"></i> <span>List author</span>
+	<li class="nav-item"><a class="nav-link collapsed" href="<%=request.getContextPath()%>/AuthorAdmin"
+							data-target="#collapseUtilities" aria-controls="collapseUtilities">
+		<i class="fas fa-fw fa-wrench"></i>
+		<span>List author</span>
 	</a>
 	</li>
 	<li class="nav-item"><a class="nav-link collapsed" href="<%=request.getContextPath()%>/Publisher"
-							data-toggle="collapse" data-target="#collapseUtilities"
-							aria-expanded="true" aria-controls="collapseUtilities"> <i
+							data-target="#collapseUtilities" aria-controls="collapseUtilities"> <i
 			class="fas fa-fw fa-wrench"></i> <span>List Category</span>
 	</a>
 	</li>

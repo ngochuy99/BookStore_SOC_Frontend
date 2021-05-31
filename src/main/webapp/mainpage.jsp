@@ -36,17 +36,16 @@
 
 
 
-				<div class="container-fluid">
+				<div class="container">
 					<!-- Page Heading -->
 					<div class="row" >
-
 						<div class="album py-5 bg-light">
 							<div class="container">
 								<div class="row">
 								<%
 									ArrayList<com.company.Book> bookList = (ArrayList<Book>)request.getAttribute("booklist");
 									for(Book b:bookList){%>
-									<div class="col-4" style="margin-top: 20px">
+									<div class="col-3" style="margin-top: 20px">
 										<div class="card shadow-sm">
 											<img class="bd-placeholder-img card-img-top" src="data:image/png;base64,<%=b.getImage()%>" width="100%" height="225"  role="img"></img>
 											<div class="card-body">
