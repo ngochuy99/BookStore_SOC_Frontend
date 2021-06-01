@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +32,9 @@ public class BookAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Send http request
         URL url = new URL(base_uri + "book");
+        if(request.getParameter("username")!=null){
+            request.getSession().setAttribute("username",request.getParameter("username"));
+        }
         HttpURLConnection http = (HttpURLConnection) url.openConnection();
         http.setRequestMethod("GET");
         StringBuilder jsonres = new StringBuilder();
