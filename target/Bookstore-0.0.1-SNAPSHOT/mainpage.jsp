@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.company.Book" %>
+<%@ page import="Model.Book" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -44,7 +44,7 @@
 							<div class="container">
 								<div class="row">
 								<%
-									ArrayList<com.company.Book> bookList = (ArrayList<Book>)request.getAttribute("booklist");
+									ArrayList<Book> bookList = (ArrayList<Book>)request.getAttribute("booklist");
 									for(Book b:bookList){%>
 									<div class="col-4" style="margin-top: 20px">
 										<div class="card shadow-sm">
