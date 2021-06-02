@@ -1,3 +1,4 @@
+import Model.User;
 import org.apache.commons.io.IOUtils;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -15,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -41,6 +43,8 @@ public class Login extends HttpServlet {
         String content = jsonres.getStatusLine().toString();   //du lieu tra ve tu server
         System.out.println(content);
         if(content.equalsIgnoreCase("HTTP/1.1 200 OK")){
+            HttpSession session = request.getSession();
+            session.setAttribute("username", username);
             response.sendRedirect(request.getContextPath()+"/BookAdmin");
         }
         else {

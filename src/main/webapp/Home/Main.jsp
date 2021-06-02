@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.company.Book" %>
+<%@ page import="Model.Book" %>
 <%@ page import="Model.Category" %>
 <%@ page import="Model.Author" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -39,7 +39,7 @@
 				<h3>Featured Products</h3>
 				<ul>
 					<%
-						ArrayList<com.company.Book> bookList = (ArrayList<Book>)request.getAttribute("booklist");
+						ArrayList<Model.Book> bookList = (ArrayList<Book>)request.getAttribute("booklist");
 						for(Book book:bookList){%>
 					<li>
 						<div class="product">
