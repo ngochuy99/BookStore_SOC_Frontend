@@ -53,7 +53,7 @@
 												<h4><%=b.getAuthor()%></h4>
 												<div class="d-flex justify-content-between align-items-center">
 													<div class="btn-group">
-														<a href="addCart?id=<%=b.getId()%>" class="fas fa-cart-plus"></a>
+														<a href="addCart?id=<%=b.getId()%>" class="fas fa-cart-plus"> <%request.setAttribute("book", b);%></a>
 													</div>
 													<small class="text-muted"><%=b.getPrice()%></small>
 												</div>

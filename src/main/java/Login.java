@@ -41,7 +41,8 @@ public class Login extends HttpServlet {
         httpPost.setHeader("Content-type", "application/json");
         CloseableHttpResponse jsonres = client.execute(httpPost); //Thuc hien post du lieu len server
         String content = jsonres.getStatusLine().toString();   //du lieu tra ve tu server
-        System.out.println(content);
+//        User user = (User) jsonres.getEntity();
+//        System.out.println(user.toString());
         if(content.equalsIgnoreCase("HTTP/1.1 200 OK")){
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
