@@ -100,16 +100,19 @@
                     <td>   </td>
                     <td>   </td>
                     <td>
-                        <form action="<%=request.getContextPath()%>/BookAdmin" method="get">
+                        <form action="<%=request.getContextPath()%>/mainPage" method="get">
                             <button type="submit" class="btn btn-default">
                                 <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                             </button>
                         </form>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-success">
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        <form action="<%=request.getContextPath()%>/addCart" method="post">
+                            <button type="button" class="btn btn-success">
+                                Checkout <span class="glyphicon glyphicon-play"></span>
+                            </button>
+                        </form>
+                    </td>
                 </tr>
                 </tbody>
             </table>
