@@ -79,7 +79,7 @@
                     <td>   </td>
                     <td>   </td>
                     <td><h5>Subtotal</h5></td>
-                    <td class="text-right"><h5><strong><%=subTotal%>></strong></h5></td>
+                    <td class="text-right"><h5><strong><%=subTotal%></strong></h5></td>
                 </tr>
                 <tr>
                     <td>   </td>
@@ -100,9 +100,12 @@
                     <td>   </td>
                     <td>   </td>
                     <td>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-                        </button></td>
+                        <form action="<%=request.getContextPath()%>/BookAdmin" method="get">
+                            <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                            </button>
+                        </form>
+                    </td>
                     <td>
                         <button type="button" class="btn btn-success">
                             Checkout <span class="glyphicon glyphicon-play"></span>
