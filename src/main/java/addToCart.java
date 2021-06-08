@@ -23,8 +23,10 @@ public class addToCart extends HttpServlet {
         }
         list = (ArrayList<String>) request.getSession().getAttribute("cart");
         list.add(id);
-        request.getSession().setAttribute("cart",list);
-        response.sendRedirect("mainPage");
+//        request.getSession().setAttribute("cart",list);
+//        response.sendRedirect("mainPage");
+        RequestDispatcher rd = request.getRequestDispatcher("Order.jsp");
+        rd.forward(request, response);
     }
 
     @Override

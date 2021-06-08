@@ -1,3 +1,4 @@
+import Model.Author;
 import Model.Publisher;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,9 +16,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import Model.Author;
+import Model.Publisher;
 
-@WebServlet(name = "Publisher", value = "/Publisher")
+@WebServlet(name = "bublisher", value = "/publisher")
 public class PublisherServlet extends HttpServlet {
     private String base_uri = "https://bookstore-restapi-nodejs.herokuapp.com/";
 
@@ -40,18 +41,14 @@ public class PublisherServlet extends HttpServlet {
             List<Publisher> publisherList = new ArrayList<>();
             for (int i = 0; i < jsonArray.length(); i++) {
                 Publisher temp = new Publisher();
-                JSONObject pub = new JSONObject(jsonArray.get(i).toString());
-                JSONObject name = pub.getJSONObject("name");    //Set Author
-                JSONObject publisher = pub.getJSONObject("address");   //Set publisher
-                temp.setId(Integer.parseInt(pub.get("id").toString()));   //Set ID
-                temp.setName(pub.get("name").toString());
-                temp.setAddress(pub.get("address").toString());
-
+                JSONObject publisher = new JSONObject(jsonArray.get(i).toString());
+                temp.setId(Integer.parseInt(publisher.get("id").toString()));   //Set ID
+                temp.setName(publisher.get("name").toString());
+                temp.setAddress(publisher.get("address").toString());
                 publisherList.add(temp);
             }
-            request.setAttribute("publisherList", publisherList); //Hàm đẩy bookList qua jsp đây này
+            request.setAttribute("publisherList", publisherList);
         }
-
         RequestDispatcher rd = request.getRequestDispatcher("Publisher.jsp");
         rd.forward(request, response);
     }

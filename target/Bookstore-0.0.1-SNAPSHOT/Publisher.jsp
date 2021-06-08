@@ -143,6 +143,7 @@
                                         <button href="deletePublisher?id=<%=p.getId()%>" type="submit" class="btn btn-danger">DELETE</button>
                                     </td>
                                 </tr>
+                                <%}%>
                                 </tbody>
                             </table>
                         </div>
