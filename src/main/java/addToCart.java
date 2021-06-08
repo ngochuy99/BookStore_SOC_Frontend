@@ -29,41 +29,41 @@ public class addToCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Send http request
-//        String id = request.getParameter("id");
-//        ArrayList<String> list = new ArrayList<>();
-//        if (request.getSession().getAttribute("cart")==null){
-//            request.getSession().setAttribute("cart",list);
-//        }
-//        list = (ArrayList<String>) request.getSession().getAttribute("cart");
-//        list.add(id);
-        int quantity = 1;
-        Book book = (Book) request.getAttribute("book");
-        System.out.println(book.toString());
-        HttpSession session = request.getSession();
-        if (session.getAttribute("order" ) == null){
-            Order order = new Order();
-            List<Item> items = new ArrayList<>();
-            items.add(new Item(book, quantity, book.getPrice()));
-            order.setItems(items);
-            session.setAttribute("order", order);
-        } else {
-            Order order = (Order) session.getAttribute("order");
-            List<Item> items = order.getItems();
-            boolean check = false;
-            for (Item item: items){
-                if (item.getBook().getId() == book.getId()){
-                    item.setQuantity(item.getQuantity() + quantity);
-                    check = true;
-                }
-            }
-            if (check == false) {
-                Item item = new Item(book, quantity, book.getPrice());
-                items.add(item);
-            }
-            session.setAttribute("order", order);
+        String id = request.getParameter("id");
+        ArrayList<String> list = new ArrayList<>();
+        if (request.getSession().getAttribute("cart")==null){
+            request.getSession().setAttribute("cart",list);
         }
+        list = (ArrayList<String>) request.getSession().getAttribute("cart");
+        list.add(id);
+//        int quantity = 1;
+//        Book book = (Book) request.getAttribute("book");
+//        HttpSession session = request.getSession();
+//        if (session.getAttribute("order" ) == null){
+//            Order order = new Order();
+//            List<Item> items = new ArrayList<>();
+//            items.add(new Item(book, quantity, book.getPrice()));
+//            order.setItems(items);
+//            session.setAttribute("order", order);
+//        } else {
+//            Order order = (Order) session.getAttribute("order");
+//            List<Item> items = order.getItems();
+//            boolean check = false;
+//            for (Item item: items){
+//                if (item.getBook().getId() == book.getId()){
+//                    item.setQuantity(item.getQuantity() + quantity);
+//                    check = true;
+//                }
+//            }
+//            if (check == false) {
+//                Item item = new Item(book, quantity, book.getPrice());
+//                items.add(item);
+//            }
+//            session.setAttribute("order", order);
+//        }
 //        request.getSession().setAttribute("cart",list);
-        response.sendRedirect("/addToCart");
+        RequestDispatcher rd = request.getRequestDispatcher("Order.jsp");
+        rd.forward(request, response);
     }
 
     @Override
