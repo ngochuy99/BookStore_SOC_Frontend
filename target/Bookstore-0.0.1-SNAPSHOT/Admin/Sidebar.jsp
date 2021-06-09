@@ -45,9 +45,9 @@
 		<span>List author</span>
 	</a>
 	</li>
-	<li class="nav-item"><a class="nav-link collapsed" href="<%=request.getContextPath()%>/Publisher"
+	<li class="nav-item"><a class="nav-link collapsed" href="<%=request.getContextPath()%>/publisher"
 							data-target="#collapseUtilities" aria-controls="collapseUtilities"> <i
-			class="fas fa-fw fa-wrench"></i> <span>List Category</span>
+			class="fas fa-fw fa-wrench"></i> <span>List Publisher</span>
 	</a>
 	</li>
 	<!-- Heading -->
