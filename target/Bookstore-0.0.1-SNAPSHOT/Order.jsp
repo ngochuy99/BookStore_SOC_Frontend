@@ -34,10 +34,10 @@
                 <tr>
                     <td class="col-sm-8 col-md-6">
                         <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="<%=item.getBook().getImage()%>" style="width: 72px; height: 72px;"> </a>
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="data:image/png;base64,<%=item.getBook().getImage()%>" style="width: 72px; height: 72px;"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#"><%=item.getBook().getName()%></a></h4>
-                                <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
+                                <h5 class="media-heading"> by <a href="#"><%=item.getBook().getAuthor()%></a></h5>
                                 <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
                             </div>
                         </div></td>
@@ -100,16 +100,19 @@
                     <td>   </td>
                     <td>   </td>
                     <td>
-                        <form action="<%=request.getContextPath()%>/BookAdmin" method="get">
+                        <form action="<%=request.getContextPath()%>/mainPage" method="get">
                             <button type="submit" class="btn btn-default">
                                 <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                             </button>
                         </form>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-success">
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        <form action="<%=request.getContextPath()%>/addCart" method="post">
+                            <button type="submit" class="btn btn-success">
+                                Checkout<span class="glyphicon glyphicon-play"></span>
+                            </button>
+                        </form>
+                    </td>
                 </tr>
                 </tbody>
             </table>
