@@ -34,7 +34,7 @@
                 <tr>
                     <td class="col-sm-8 col-md-6">
                         <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="data:image/png;base64,<%=item.getBook().getImage()%>" style="width: 72px; height: 72px;"> </a>
+                            <a class="thumbnail pull-left" href="#"> <img  class="media-object" src="<%=item.getBook().getImage()%>" style="width: 72px; height: 72px;"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#"><%=item.getBook().getName()%></a></h4>
                                 <h5 class="media-heading"> by <a href="#"><%=item.getBook().getAuthor()%></a></h5>
