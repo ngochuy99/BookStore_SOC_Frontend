@@ -1,4 +1,5 @@
 
+import Model.Book;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -46,9 +47,9 @@ public class BookAdmin extends HttpServlet {
             in.close();
             JSONObject res = new JSONObject(jsonres.toString());
             JSONArray jsonArray = new JSONArray(res.get("books").toString());
-            List<com.company.Book> bookList = new ArrayList<>();
+            List<Book> bookList = new ArrayList<>();
             for (int i = 0; i < jsonArray.length(); i++) {
-                com.company.Book temp = new com.company.Book();
+                Book temp = new Book();
                 JSONObject book = new JSONObject(jsonArray.get(i).toString());
                 JSONObject author = book.getJSONObject("Author");    //Set Author
                 JSONObject publisher = book.getJSONObject("Publisher");   //Set publisher

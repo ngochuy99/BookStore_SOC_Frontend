@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Sidebar -->
 <ul
@@ -9,7 +8,7 @@
 	<!-- Sidebar - Brand -->
 	<a
 		class="sidebar-brand d-flex align-items-center justify-content-center"
-		href="index.html">
+		href="">
 		<div class="sidebar-brand-icon rotate-n-15">
 			<i class="fas fa-laugh-wink"></i>
 		</div>
@@ -46,9 +45,9 @@
 		<span>List author</span>
 	</a>
 	</li>
-	<li class="nav-item"><a class="nav-link collapsed" href="<%=request.getContextPath()%>/Publisher"
+	<li class="nav-item"><a class="nav-link collapsed" href="<%=request.getContextPath()%>/publisher"
 							data-target="#collapseUtilities" aria-controls="collapseUtilities"> <i
-			class="fas fa-fw fa-wrench"></i> <span>List Category</span>
+			class="fas fa-fw fa-wrench"></i> <span>List Publisher</span>
 	</a>
 	</li>
 	<!-- Heading -->

@@ -6,6 +6,7 @@
    <display-name>ServletTutorial</display-name>
  
    <welcome-file-list>
+       <welcome-file>Login.jsp</welcome-file>
        <welcome-file>TrangChu.jsp</welcome-file>
        <welcome-file>BookManagement.jsp</welcome-file>
        <welcome-file>index.htm</welcome-file>

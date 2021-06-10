@@ -1,8 +1,9 @@
-package com.company;
+package Model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Book {
+public class Book implements Serializable {
     private int id;
     private String name;
     private double price;
