@@ -1,6 +1,7 @@
 import Model.User;
 import org.apache.commons.io.IOUtils;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPost;
@@ -8,6 +9,7 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
 import javax.servlet.RequestDispatcher;
@@ -39,13 +41,13 @@ public class Login extends HttpServlet {
         httpPost.setEntity(entity); //set json vao http post request
         httpPost.setHeader("Accept", "application/json");
         httpPost.setHeader("Content-type", "application/json");
-        CloseableHttpResponse jsonres = client.execute(httpPost); //Thuc hien post du lieu len server
-        String content = jsonres.getStatusLine().toString();   //du lieu tra ve tu server
-//        User user = (User) jsonres.getEntity();
-//        System.out.println(user.toString());
+        CloseableHttpResponse jsonres = client.execute(httpPost);
+        String content = jsonres.getStatusLine().toString();
+        JSONObject user = new JSONObject(EntityUtils.toString(jsonres.getEntity())).getJSONObject("user");
         if(content.equalsIgnoreCase("HTTP/1.1 200 OK")){
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
+            session.setAttribute("role",user.get("role"));
             response.sendRedirect(request.getContextPath()+"/BookAdmin");
         }
         else {

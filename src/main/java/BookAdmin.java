@@ -88,7 +88,7 @@ public class BookAdmin extends HttpServlet {
         String category = request.getParameter("category");
         String publisher = request.getParameter("publisher");
         String inStock = request.getParameter("inStock");
-
+        String image = request.getParameter("image");
         //Tao json object
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name",name);
@@ -101,7 +101,7 @@ public class BookAdmin extends HttpServlet {
         category_list.put(0,category);
         jsonObject.put("category_list",category_list);
         jsonObject.put("publisher_name",publisher);
-        jsonObject.put("image","");
+        jsonObject.put("image",image);
         //Set data cho http post request
         StringEntity entity = new StringEntity(jsonObject.toString());
         httpPost.setEntity(entity); //set json vao http post request

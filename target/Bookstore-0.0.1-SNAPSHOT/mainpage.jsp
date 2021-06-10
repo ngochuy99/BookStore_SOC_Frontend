@@ -47,7 +47,7 @@
 									for(Book b:bookList){%>
 									<div class="col-3" style="margin-top: 20px">
 										<div class="card shadow-sm">
-											<img class="bd-placeholder-img card-img-top" src="data:image/png;base64,<%=b.getImage()%>" width="100%" height="225"  role="img" />
+											<img class="bd-placeholder-img card-img-top" src="<%=b.getImage()%>" width="100%" height="225"  role="img" />
 											<div class="card-body">
 												<h3><%=b.getName()%></h3>
 												<h4><%=b.getAuthor()%></h4>
