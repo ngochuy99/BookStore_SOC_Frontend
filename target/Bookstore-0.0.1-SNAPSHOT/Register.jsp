@@ -63,7 +63,7 @@
                                                placeholder="Address">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" name="tel"
+                                        <input type="text" class="form-control form-control-user" name="tel"
                                                placeholder="Telephone">
                                     </div>
                                 </div>

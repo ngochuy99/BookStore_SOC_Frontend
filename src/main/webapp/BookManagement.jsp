@@ -88,6 +88,11 @@
 																	 name="publisher" class="form-control"
 																	 placeholder="Enter Publisher">
 									</div>
+									<div class="form-group">
+										<label>Image</label> <input type="text"
+																		name="image" class="form-control"
+																		placeholder="Enter Image path">
+									</div>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"
@@ -187,6 +192,7 @@
 											<th>Author</th>
 											<th>Category</th>
 											<th>Publisher</th>
+											<th>Image</th>
 											<th>EDIT</th>
 											<th>DELETE</th>
 										</tr>
@@ -209,6 +215,7 @@
 												<%}%>
 											</td>
 											<td><%=b.getPublisher()%></td>
+											<td><img style="display: block; width:100px; height: 100px" src="<%=b.getImage()%>"></td>
 											<td>
 												<button type="button" id="<%=b.getId()%>" class="btn btn-success" data-toggle="modal"
 														data-target="#editbook">UPDATE</button>

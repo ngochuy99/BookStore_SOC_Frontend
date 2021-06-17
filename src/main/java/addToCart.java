@@ -2,9 +2,9 @@
 import Model.Book;
 import Model.Item;
 import Model.Order;
+import Model.User;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -35,14 +35,10 @@ public class addToCart extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = (User) request.getSession().getAttribute("user");
+
         //Send http request
         String id = request.getParameter("id");
-//        ArrayList<String> list = new ArrayList<>();
-//        if (request.getSession().getAttribute("cart")==null){
-//            request.getSession().setAttribute("cart",list);
-//        }
-//        list = (ArrayList<String>) request.getSession().getAttribute("cart");
-//        list.add(id);
         URL url = new URL(base_uri + "book/" + id);
         HttpURLConnection http = (HttpURLConnection) url.openConnection();
         http.setRequestMethod("GET");
@@ -80,8 +76,9 @@ public class addToCart extends HttpServlet {
             List<Item> items = new ArrayList<>();
             items.add(new Item(book, quantity, book.getPrice()));
             order.setItems(items);
-            order.setDestination("Ha Noi");
+            order.setDestination(user.getAddress());
             order.setShipmentFee("10000");
+            order.setUser(user);
             session.setAttribute("order", order);
         } else {
             Order order = (Order) session.getAttribute("order");
@@ -97,9 +94,7 @@ public class addToCart extends HttpServlet {
                 Item item = new Item(book, quantity, book.getPrice());
                 items.add(item);
             }
-            session.setAttribute("order", order);
         }
-//        request.getSession().setAttribute("cart",list);
         RequestDispatcher rd = request.getRequestDispatcher("Order.jsp");
         rd.forward(request, response);
     }
@@ -115,7 +110,7 @@ public class addToCart extends HttpServlet {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("destination", order.getDestination());
         jsonObject.put("shipmentFee", order.getShipmentFee());
-        jsonObject.put("userId", 1);
+        jsonObject.put("userId", order.getUser().getId());
         JSONArray books = new JSONArray();
         Map map = new HashMap();
         for (Item item: order.getItems()){
@@ -124,7 +119,6 @@ public class addToCart extends HttpServlet {
             books.put(map);
         }
         jsonObject.put("books", books);
-        System.out.println(jsonObject.toString());
         StringEntity entity = new StringEntity(jsonObject.toString());
         httpPost.setEntity(entity); //set json vao http post request
         httpPost.setHeader("Accept", "application/json");
@@ -132,7 +126,6 @@ public class addToCart extends HttpServlet {
 
         CloseableHttpResponse jsonres = client.execute(httpPost); //Thuc hien post du lieu len server
         String content = jsonres.getStatusLine().toString();   //du lieu tra ve tu server
-        System.out.println(content);
         if(content.equalsIgnoreCase("HTTP/1.1 200 OK")){
             session.removeAttribute("order");
             response.sendRedirect(request.getContextPath()+"/mainPage");

@@ -44,6 +44,7 @@ public class Register extends HttpServlet {
         jsonObject.put("tel",tel);
         jsonObject.put("gender",gender);
         jsonObject.put("email",email);
+        jsonObject.put("role",0);
         //Set data cho http post request
         StringEntity entity = new StringEntity(jsonObject.toString());
         httpPost.setEntity(entity); //set json vao http post request
