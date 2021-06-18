@@ -86,10 +86,5 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-    <script>
-        $('#editbook').on('show.bs.modal', function (e) {
-            $("#bookidupdate").val(e.relatedTarget.id);
-        })
-    </script>
 </body>
 </html>
